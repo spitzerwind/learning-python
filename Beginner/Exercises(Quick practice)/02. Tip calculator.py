@@ -6,3 +6,5 @@ people = int(input("How many people to split the bill? "))
 bill += bill * (tip/100)
 total_per_person = bill / people
 print(total_per_person)
+
+return
