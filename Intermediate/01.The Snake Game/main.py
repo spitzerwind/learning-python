@@ -1,30 +1,33 @@
-import turtle
-
-import time
+from turtle import Screen
 import snake
+import time
 
-screen = turtle.Screen()
+screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
-screen.title("SnakeGame")
+screen.title("snake and apples")
 screen.tracer(0)
-turtle.listen()
-
+screen.listen()
 snake = snake.Snake()
 
 
+screen.onkey(snake.up,"Up")
+screen.onkey(snake.down,"Down")
+screen.onkey(snake.left,"Left")
+screen.onkey( snake.right ,"Right")
 
-game_on = True
-while game_on:
 
-    time.sleep(1 / 10)
-    snake.move()
+game_is_on = True
+
+while game_is_on:
     screen.update()
+    time.sleep(0.1)
+    snake.move()
 
 
 
 
 
-screen.listen()
+
 
 screen.exitonclick()
