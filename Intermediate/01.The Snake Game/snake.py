@@ -1,6 +1,8 @@
 
 from turtle import Turtle
 
+
+
 up = 90
 down = 270
 left = 180
@@ -18,18 +20,26 @@ class Snake:
     def create_snake(self):
 
         for j in initialbody_coordinates:
-            snaky = Turtle("square")
-            snaky.color("white")
-            snaky.penup()
-            snaky.goto(j)
-            self.body_snake.append(snaky)
+            self.snake_body(j)
+
+
+    def snake_body(self,position):
+        snaky = Turtle("square")
+        snaky.color("blue")
+        snaky.penup()
+        snaky.goto(position)
+        self.body_snake.append(snaky)
+
+    def extend_body(self):
+        new_pos =  self.body_snake[-1].position()
+        self.snake_body(new_pos)
 
 
 
     def move(self):
 
-        for r in range(len(self.body_snake)-1,0,-1):
-            new_x = self.body_snake[r-1].xcor()
+        for r in range(len(self.body_snake) - 1, 0, -1):
+            new_x = self.body_snake[r - 1].xcor()
             new_y = self.body_snake[r-1].ycor()
             self.body_snake[r].goto(new_x,new_y)
         self.body_snake[0].forward(20)
